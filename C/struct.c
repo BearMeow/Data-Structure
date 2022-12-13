@@ -45,7 +45,7 @@ typedef struct
   char   c;
   double d;
   int    s;
-} __attribute__((packed)) C_packed ;
+} __attribute__((packed)) C_packed;
 
 int main(void)
 {
