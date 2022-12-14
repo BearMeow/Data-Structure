@@ -43,7 +43,17 @@ bool queue_pop(queue *q, int *data)
   }
 }
 
-bool queue_empty(queue *q);
-bool queue_full(queue *q);
-int queue_size(queue *q);
+bool queue_empty(queue *q)
+{
+  return (q->back == q->front);
+}
 
+bool queue_full(queue *q)
+{
+  return (((q->back + 1) % CAPACITY) == q->front);
+}
+
+int queue_size(queue *q)
+{
+  return q->size;
+}

@@ -42,12 +42,12 @@ bool stack_pop(stack *st, int *data)
 
 bool stack_empty(stack *st)
 {
-  return st->size == 0;
+  return (st->size == 0);
 }
 
 bool stack_full(stack *st)
 {
-  return st->size >= CAPACITY;
+  return (st->size >= CAPACITY);
 }
 
 int stack_size(stack *st)
