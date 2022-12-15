@@ -25,22 +25,13 @@ bool queue_push(queue *q, int data)
   }
 }
 
-bool queue_pop(queue *q, int *data)
+type queue_pop(queue *q)
 {
-  if(q->size <= 0)
-  {
-    /* Empty queue can not pop any element. */
-    return false;
-  }
-  else
-  {
-    /* Removing first insert element from front + 1 modulo queue
-     * capacity because circular queue implementation. */
-    *data = q->arr[(++q->front) % CAPACITY];
-    q->size--;
 
-    return true;
-  }
+  /* Removing first insert element from front + 1 modulo queue
+   * capacity because circular queue implementation. */
+  q->size--;
+  return q->arr[(++q->front) % CAPACITY];
 }
 
 bool queue_empty(queue *q)

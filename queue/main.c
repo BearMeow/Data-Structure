@@ -13,10 +13,7 @@ int main(void)
     printf("push %d to into queue\n", 8);
   }
 
-  if(queue_pop(&q, &data))
-  {
-    printf("pop %d from queue\n", data);
-  }
+  printf("pop %d from queue\n", queue_pop(&q));
 
   return 0;
 }

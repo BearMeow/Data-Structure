@@ -6,7 +6,7 @@ void stack_init(stack *st)
   st->size = 0;
 }
 
-bool stack_push(stack *st, int data)
+bool stack_push(stack *st, type data)
 {
   if(st->size + 1 > CAPACITY)
   {
@@ -23,21 +23,17 @@ bool stack_push(stack *st, int data)
   }
 }
 
-bool stack_pop(stack *st, int *data)
+type stack_pop(stack *st)
 {
-  if(st->size <= 0)
-  {
-    /* Empty stack can not pop any element. */
-    return false;
-  }
-  else
-  {
-    /* Removing last insert element from top index. */
-    *data = st->arr[st->top--];
-    st->size--;
+  /* Removing last insert element from top index. */
+  st->size--;
+  return st->arr[st->top--];
+}
 
-    return true;
-  }
+type stack_peek(stack *st)
+{
+  /* Peeking last insert element from top index. */
+  return st->arr[st->top];
 }
 
 bool stack_empty(stack *st)

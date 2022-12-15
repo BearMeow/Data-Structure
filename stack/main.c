@@ -12,11 +12,8 @@ int main(void)
   {
     printf("push %d to into stack\n", 8);
   }
-  
-  if(stack_pop(&st, &data))
-  {
-    printf("pop %d from stack\n", data);
-  }
+
+  printf("pop %d from stack\n", stack_pop(&st));
 
   return 0;
 }
