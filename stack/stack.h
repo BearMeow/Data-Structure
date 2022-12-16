@@ -12,8 +12,8 @@ typedef int type;
 typedef struct
 {
   /* stack data structure */
-  int top;            /* Index point last push element. */
-  int size;           /* Size of stack. */
+  int top;             /* Index point last push element. */
+  int size;            /* Size of stack. */
   type arr[CAPACITY];  /* Storage of stack (array implementation). */
 } stack;
 

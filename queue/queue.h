@@ -12,9 +12,9 @@ typedef int type;
 typedef struct
 {
   /* queue data structure */
-  int front;          /* Index + 1 point first pushed element in queue. */
-  int back;           /* Index point last pushed element in queue. */
-  int size;           /* Size of queue. */
+  int front;           /* Index + 1 point first pushed element in queue. */
+  int back;            /* Index point last pushed element in queue. */
+  int size;            /* Size of queue. */
   type arr[CAPACITY];  /* Storage of queue (array implementation). */
 } queue;
 
