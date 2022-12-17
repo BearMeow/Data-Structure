@@ -9,7 +9,7 @@ typedef int type;
 typedef struct node
 {
   /* node structure */
-  type data;   /* Data that node store */
+  type data;          /* Data that node store */
   struct node *next;  /* Pointer point next node in linked list. */
 } node;
 
