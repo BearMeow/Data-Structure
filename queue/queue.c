@@ -18,7 +18,8 @@ bool queue_push(queue *q, int data)
   {
     /* Placing new element at back + 1 modulo queue capacity 
      * because circular queue implementation. */
-    q->arr[(++q->back) % CAPACITY] = data;
+    q->back = (q->back + 1) % CAPACITY;
+    q->arr[q->back] = data;
     q->size++;
 
     return true;
@@ -27,11 +28,12 @@ bool queue_push(queue *q, int data)
 
 type queue_pop(queue *q)
 {
-
   /* Removing first insert element from front + 1 modulo queue
    * capacity because circular queue implementation. */
   q->size--;
-  return q->arr[(++q->front) % CAPACITY];
+  q->front = (q->front + 1) % CAPACITY;
+  
+  return q->arr[q->front];
 }
 
 bool queue_empty(queue *q)
