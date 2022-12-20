@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "binary_tree.h"
 
 tree_node * BST_search(tree_node *t, const int KEY);
+tree_node * BST_insert(tree_node *t, const int data);
+void BST_delete(tree_node *t, const int KEY);
 
 int main(void)
 {
@@ -30,7 +33,12 @@ int main(void)
   {
     printf("node 6 not found\n");
   }
+
+  BST_insert(root, 8);
   
+  printf("inorder after insert 8 = ");
+  inorder(root);
+  printf("\n");
 
   return 0;
 }
@@ -53,3 +61,44 @@ tree_node * BST_search(tree_node *t, const int KEY)
 
   return cur;
 }
+
+tree_node * BST_insert(tree_node *t, const int data)
+{
+  tree_node *new_node = new_tree_node(data);
+
+  if(new_node != NULL)
+  {
+    tree_node *cur, *parent;
+    
+    cur = t;
+    while(cur != NULL)
+    {
+      parent = cur;
+
+      if(new_node->data < cur->data)
+      {
+        cur = cur->left;
+      }
+      else
+      {
+        cur = cur->right;
+      }
+    }
+
+    if(parent == NULL)
+    {
+      t = new_node;  /* empty tree */
+    }
+    else if(new_node->data < parent->data)
+    {
+      parent->left = new_node;
+    }
+    else
+    {
+      parent->right = new_node;
+    }
+  }
+
+  return new_node;
+}
+
