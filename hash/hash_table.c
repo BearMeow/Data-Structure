@@ -28,19 +28,14 @@ bool hash_search(hash_table *h, type data)
 
 bool hash_insert(hash_table *h, type data)
 {
-  /* Calculate slot location. */
-  node *cur = &h->table[HASH(PREHASHING(data))];
-
-  while(cur->next != NULL)
-  {
-    cur = cur->next;
-  }
-  
   node *new_node = (node *)malloc(sizeof(node));
   if(new_node != NULL)
   {
+    /* Calculate slot location. */
+    node *cur = &h->table[HASH(PREHASHING(data))];
+
     new_node->data = data;
-    new_node->next = NULL;
+    new_node->next = cur->next;
     cur->next = new_node;
     
     return true;
